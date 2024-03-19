@@ -1,0 +1,285 @@
+body {
+    padding: 50px 0px;
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    padding-bottom: 120px;
+    background-color: #E5E4E1;
+}
+
+.page-container {
+    width: 892px;
+    /* Width of A4 paper in millimeters */
+    /* height: 850px; */
+    /* Height of A4 paper in millimeters */
+    margin: 0px auto;
+    padding: 50px 55px 40px 55px;
+    background-color: white;
+    box-shadow: 0px 2px 6px 0px #0000001A;
+
+}
+
+.heading {
+    padding: 0px, 18px, 0px, 18px;
+    border-radius: 9px;
+    background: #C4EED7;
+
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
+.heading-m{
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 36px;
+    letter-spacing: 0em;
+}
+.text-gray {
+    font-family: IBM Plex Sans Arabic;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: 0em;
+    color: #8C8C8C;
+
+}
+
+.heading2 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+
+}
+
+.text {
+    font-family: IBM Plex Sans Arabic;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: justify;
+}
+
+.medium {
+    font-weight: 600 !important;
+}
+
+.text-arabic {
+    font-family: IBM Plex Sans Arabic;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: justify;
+}
+
+.input {
+    position: relative;
+    padding: 0 !important;
+    border: none;
+    border-bottom: 1px dotted black;
+    font-size: 15px !important;
+    line-height: 0px !important;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+}
+
+.input:hover,
+.input:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.text3 {
+    color: #000;
+    text-align: justify;
+    font-family: "IBM Plex Sans Arabic";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 180%;
+    /* 14.4px */
+}
+
+.input-div {
+    margin-top: -4px !important;
+}
+
+.input2 {
+    width: 300px;
+    height: 30px;
+    padding: 7.5px 7px 7.5px 7px;
+    border-radius: 3px;
+    border: 0.75px solid #B5B5B5;
+    text-align: center;
+}
+
+.input2:hover,
+.input2:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.w-700 {
+    font-weight: 700;
+}
+
+.mt-50 {
+    margin-top: 59px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #FFF 0%, rgba(234, 234, 234, 0.96) 100%);
+    padding: 22px 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button1 {
+    display: flex;
+    height: 40px;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: var(--White, #FFF);
+    font-family: "IBM Plex Sans Arabic";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+    border-radius: 6px;
+    background: var(--Main-Black, #121212);
+    box-shadow: 0px 1px 3px 0px rgba(16, 24, 40, 0.10), 0px 1px 2px -1px rgba(0, 0, 0, 0.10);
+    border: none;
+}
+
+.button2 {
+    display: flex;
+    height: 40px;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    border: 1px solid var(--Border-lines, #E5E7EB);
+    background: var(--White, #FFF);
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    color: var(--Main-Black, #121212);
+    font-family: "IBM Plex Sans Arabic";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    /* 142.857% */
+}
+
+.bg-row {
+    background: #FFFAFA;
+
+}
+
+.row-border {
+    border: 0.75px solid #F77F7F
+}
+
+.box {
+
+    padding: 6px;
+    border-radius: 3px;
+    background: white;
+    border: 0.75px solid #606060;
+}
+
+.box p {
+    font-family: IBM Plex Sans Arabic;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.procedure-header {
+    background: #000000;
+
+}
+
+.procedure-header p {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 23px;
+    color: #EFEFEF;
+}
+
+.host-header {
+    background: #EFEFEF;
+
+}
+
+.host-header p {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 23px;
+    color: black;
+}
+
+.box-text {
+    font-family: IBM Plex Sans Arabic;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #D30000;
+
+}
+
+.appendix-header {
+    border-bottom: 6px solid #000;
+}
+
+.appendix-header h2 {
+    font-family: IBM Plex Sans Arabic;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+
+}
+
+.booking-header {
+    border: 0.75px solid #D8D8D8;
+    background: #D8D8D8;
+
+}
+
+textarea {
+    width: 100%;
+    border: 0.75px solid #D8D8D8;
+    border-radius: 3px;
+}
+
+.line {
+    border: 2px solid #6b6969;
+}
+
+.input2-box {
+    width: 160px;
+}
+
+.box2 p {
+    width: 120px;
+}
