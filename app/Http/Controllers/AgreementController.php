@@ -11,15 +11,17 @@ class AgreementController extends Controller {
         $response = Http::get("https://dev-api.makanat.com/api/v2/web/file/agreement?booking_id=" . $booking_id);
 
         if ($response->status() === 200) {
+            $category = $response->json()['data']['booking_type'];
 
-            if ($booking_id === 'f53613f8-9c57-444a-ac47-6832bd47ca08') {
-                return view("meeting", $response->json()['data']);
-            } else if ($booking_id === '0e13d9de-1d3e-4fc0-ba41-7bfb95cb4e0a') {
-                return view("event", $response->json()['data']);
-            } else if ($booking_id === 'bd5a0adb-630e-4fba-bc31-db6e03f56861') {
-                return view("location", $response->json()['data']);
-            } else {
-                abort(404);
+            switch ($category) {
+                case "Category A 💼":
+                    return view("meeting", $response->json()['data']);
+                case "category B 🥳":
+                    return view("event", $response->json()['data']);
+                case "Category C 🎬":
+                    return view("location", $response->json()['data']);
+                default:
+                    abort(404);
             }
         } else {
             abort(404);
