@@ -438,28 +438,13 @@
                 <div class="col-6">
                     <p class="text  pb-0 mb-0 ">
                         <span class="medium">2.8.2 Space cancellation policy:</span>
-                        Guests may cancel their Booking until 30 days before the event start time and will receive a
-                        full refund
-                        (including all Fees) of their Booking Price. Guests may cancel their Booking between 30 days and
-                        7 days before
-                        the event start time and receive a 50% refund (excluding Fees) of their Booking Price.
-                        Cancellations submitted
-                        less than 7 days before the Event start time are not refundable.
+                        {{ $cancellation_policy['description_en'] }}
                     </p>
                 </div>
                 <div class="col-6">
                     <p class="text-arabic mb-0 pb-0" lang="ar" dir="rtl">
                         <span class="medium">2.8.2 سياسة الإلغاء الخاصة بالمساحة: </span>
-
-                        يجوز للضيوف إلغاء حجوزاتهم بشرط أن يقع الإلغاء قبل ثلاثين (30) يوم من الموعد المحدد لبدء
-                        الفاعلية. وفى هذه
-                        الحالة سيحصل الضيوف على استرداد كامل (بما في ذلك جميع الرسوم) عن مقابل الحجوزات الملغاة. إذا وقع
-                        إلغاء الحجوزات
-                        في الفترة ما بين ثلاثين (30) يوم إلى ما قبل سبعة (7) أيام من الوقت المحدد لبدء الفاعلية، فلا
-                        يجوز للضيوف إلا
-                        استرداد 50٪ من مقابل الحجوزات المدفوعة (باستثناء الرسوم). ولا يجوز استرداد مقابل الحجوزات التي
-                        يجرى إلغائها في
-                        مدة أقل من سبعة (7) أيام من وقت بدء الفاعلية.
+                        {{ $cancellation_policy['description_ar'] }}
                     </p>
                 </div>
             </div>
@@ -984,6 +969,12 @@
     <script src="{{ asset('js/IBMPlexSansArabic-Medium-normal.js') }}"></script>
     <script src="{{ asset('js/IBMPlexSansArabic-SemiBold-normal.js') }}"></script>
     <script src="{{ asset('js/IBMPlexSansArabic-Bold-normal.js') }}"></script>
+
+    <script>
+        const cancellation_policy_en = '{{ $cancellation_policy['description_en'] }}';
+        const cancellation_policy_ar = '{{ $cancellation_policy['description_ar'] }}';
+    </script>
+
     <script src="{{ asset('js/location-pdf.js') }}"></script>
 
     <script>

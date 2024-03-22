@@ -244,7 +244,7 @@ function generatePDF() {
 
     pdf.setLineDashPattern()
     pdf.setDrawColor('#B5B5B5')
-    pdf.roundedRect(pxToMm(getPageWidthInPx() / 2 - x - 80), pxToMm(y - 20), pxToMm(300), pxToMm(30), pxToMm(0.75), pxToMm(0.75))
+    pdf.roundedRect(pxToMm(getPageWidthInPx() / 2 - x - 150), pxToMm(y - 20), pxToMm(430), pxToMm(30), pxToMm(0.75), pxToMm(0.75))
 
     pdf.setFont('IBMPlexSansArabic-SemiBold', 'normal')
     pdf.text(":" + '“المساحة”', pxToMm(getPageWidthInPx() - x - 66), pxToMm(y))
@@ -558,7 +558,7 @@ function generatePDF() {
 
     y += 20
     pdf.line(pxToMm(getPageWidthInPx() - x - 85), pxToMm(y), pxToMm(getPageWidthInPx() - x - 105 + 67), pxToMm(y))
-    pdf.text($('#amount_2_5_ar').val(), pxToMm(x + 675) - 2 - getTextWidth($('#amount_2_5_ar').val()), pxToMm(y - 3))
+    pdf.text($('#amount_2_5_ar').val(), pxToMm(x + 650) - 2 - getTextWidth($('#amount_2_5_ar').val()), pxToMm(y - 3))
 
     pdf.text("قدره", pxToMm(getPageWidthInPx() - x - 35), pxToMm(y), { charSpace: 0.02 })
 
@@ -701,7 +701,7 @@ function generatePDF() {
     pdf.setFont('IBMPlexSansArabic-SemiBold', 'normal')
     pdf.text(pxToMm(x), pxToMm(y), '2.9.1 Makanat grace period:')
     pdf.setFont('IBMPlexSansArabic-Regular', 'normal')
-    pdf.text(pxToMm(x + 194), pxToMm(y), 'Full refund for Bookings')
+    pdf.text(pxToMm(x + 185), pxToMm(y), 'Full refund for Bookings', { charSpace: 0.1 })
 
     y += 20
     justify(pdf, "cancelled within 24 hours from booking confirmation but no later than 48 hours prior to the Shoot start time.", pxToMm(x), pxToMm(y), pxToMm(getPageWidthInPx() / 2 - 56))
@@ -719,20 +719,36 @@ function generatePDF() {
     y += 20
     justify(pdf, "الحجز بشرط أن يقع الإلغاء خلال (24) ساعة من تاريخ استلام تأكيد الحجز وبما لا يقل عن (48) ساعة من التاريخ المقرر لبدء .التصوير", pxToMm(getPageWidthInPx() - x - 313), pxToMm(y), pxToMm(getPageWidthInPx() / 2 - 80), 'rtl')
 
+    var height = 0;
+
+    var lines = pdf.splitTextToSize(cancellation_policy_en, pxToMm(getPageWidthInPx() / 2 - 56));
+    var lineHeight = pdf.internal.getFontSize() / pdf.internal.scaleFactor + 2;
+    var height_en = lines.length * lineHeight + 10;
+
+    var lines = pdf.splitTextToSize(cancellation_policy_ar, pxToMm(getPageWidthInPx() / 2 - 80));
+    var lineHeight = pdf.internal.getFontSize() / pdf.internal.scaleFactor + 2;
+    var height_ar = lines.length * lineHeight + 10;
+
+    if (height_en > height_ar) {
+        height = height_en
+    } else {
+        height = height_ar
+    }
+
     y += 80
     pdf.setDrawColor('#E97878')
     pdf.setFillColor('#FFFAFA')
     pdf.setLineWidth(0.1)
-    pdf.roundedRect(pxToMm(x - 15), pxToMm(y - 20), pxToMm(getPageWidthInPx() - (x * 2) + 25), pxToMm(220), pxToMm(0.75), pxToMm(0.75), 'DF')
+    pdf.roundedRect(pxToMm(x - 15), pxToMm(y - 20), pxToMm(getPageWidthInPx() - (x * 2) + 25), height, pxToMm(0.75), pxToMm(0.75), 'DF')
 
     pdf.setFontSize(pxToPt(13.5))
     pdf.setFont('IBMPlexSansArabic-SemiBold', 'normal')
     pdf.text(pxToMm(x), pxToMm(y), '2.9.2 Space cancellation policy:')
     pdf.setFont('IBMPlexSansArabic-Regular', 'normal')
-    pdf.text(pxToMm(x + 210), pxToMm(y), 'Guests may cancel', { charSpace: 0.2 })
+    // pdf.text(pxToMm(x + 210), pxToMm(y), 'Guests may cancel', { charSpace: 0.2 })
 
     y += 20
-    justify(pdf, "their Booking until 30 days before the event start time and will receive a full refund (including all Fees) of their Booking Price. Guests may cancel their Booking between 30 days and 7 days before the event start time and receive a 50% refund (excluding Fees) of their Booking Price. Cancellations submitted less than 7 days before the Event start time are not refundable.", pxToMm(x), pxToMm(y), pxToMm(getPageWidthInPx() / 2 - 56))
+    justify(pdf, cancellation_policy_en, pxToMm(x), pxToMm(y), pxToMm(getPageWidthInPx() / 2 - 56))
 
     y -= 20
     pdf.setFont('IBMPlexSansArabic-SemiBold', 'normal')
@@ -741,14 +757,13 @@ function generatePDF() {
     pdf.text("2.9.2", pxToMm(getPageWidthInPx() - x - 40), pxToMm(y))
 
     pdf.setFont('IBMPlexSansArabic-Regular', 'normal')
-    pdf.text("يجوز للضيوف" + " " + "إلغاء", pxToMm(getPageWidthInPx() - x - 312), pxToMm(y), { charSpace: 0.1 })
+    // pdf.text("يجوز للضيوف" + " " + "إلغاء", pxToMm(getPageWidthInPx() - x - 312), pxToMm(y), { charSpace: 0.1 })
 
 
     y += 20
-    justify(pdf, "حجوزاتهم بشرط أن يقع الإلغاء قبل ثلاثين (30) يوم من الموعد المحدد لبدء الفاعلية. وفى هذه الحالة سيحصل الضيوف على استرداد كامل (بما في ذلك جميع الرسوم) عن مقابل الحجوزات الملغاة. إذا وقع إلغاء الحجوزات في الفترة ما بين ثلاثين (30) يوم إلى ما قبل سبعة (7) أيام من الوقت المحدد لبدء الفاعلية، فلا يجوز للضيوف إلا استرداد 50٪ من مقابل الحجوزات المدفوعة (باستثناء الرسوم). ولا يجوز استرداد مقابل الحجوزات التي يجرى إلغائها في مدة أقل من سبعة (7) أيام من وقت بدء .الفاعلية", pxToMm(getPageWidthInPx() - x - 313), pxToMm(y), pxToMm(getPageWidthInPx() / 2 - 80), 'rtl')
+    justify(pdf, cancellation_policy_ar, pxToMm(getPageWidthInPx() - x - 313), pxToMm(y), pxToMm(getPageWidthInPx() / 2 - 80), 'rtl')
 
-    y += 200
-
+    y += height + 40
     pdf.setDrawColor('#E97878')
     pdf.setFillColor('#FFFAFA')
     pdf.setLineWidth(0.1)
