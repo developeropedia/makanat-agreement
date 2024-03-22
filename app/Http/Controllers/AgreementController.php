@@ -13,13 +13,15 @@ class AgreementController extends Controller {
         if ($response->status() === 200) {
             $category = $response->json()['data']['booking_type'];
 
+            $data = $response->json()['data'];
+
             switch ($category) {
                 case "Category A 💼":
-                    return view("meeting", $response->json()['data']);
+                    return view("meeting", $data);
                 case "category B 🥳":
-                    return view("event", $response->json()['data']);
+                    return view("event", $data);
                 case "Category C 🎬":
-                    return view("location", $response->json()['data']);
+                    return view("location", $data);
                 default:
                     abort(404);
             }
